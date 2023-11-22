@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2023 a las 09:06:52
+-- Tiempo de generación: 22-11-2023 a las 18:55:54
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -34,16 +34,16 @@ CREATE TABLE `tbl_productos` (
   `telefono` varchar(50) NOT NULL,
   `correo` varchar(50) NOT NULL,
   `codigo_postal` varchar(50) NOT NULL,
-  `numero_cuenta` varchar(50) NOT NULL
+  `numero_cuenta` varchar(50) NOT NULL,
+  `existencia` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tbl_productos`
 --
 
-INSERT INTO `tbl_productos` (`id`, `codigo`, `nombre_completo`, `telefono`, `correo`, `codigo_postal`, `numero_cuenta`) VALUES
-(5, '2', 'viviana cardenas', '6563797808', 'vivi.cardenas28@gmail.com', '9865', '3'),
-(6, '12', 'viviana cardenas', '6568500643', 'vivi.cardenas28@gmail.com', '65748', '937569');
+INSERT INTO `tbl_productos` (`id`, `codigo`, `nombre_completo`, `telefono`, `correo`, `codigo_postal`, `numero_cuenta`, `existencia`) VALUES
+(4, '1', 'viviana cardenas', '6563797808', 'vivi.cardenas28@gmail.com', '65748', '23456', 9);
 
 -- --------------------------------------------------------
 
@@ -65,9 +65,7 @@ CREATE TABLE `tbl_productosvendidos` (
 INSERT INTO `tbl_productosvendidos` (`id`, `id_producto`, `cantidad`, `id_venta`) VALUES
 (1, 2, 1, 1),
 (2, 1, 1, 1),
-(3, 1, 1, 2),
-(4, 4, 1, 2),
-(5, 5, 1, 3);
+(3, 4, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -87,7 +85,7 @@ CREATE TABLE `tbl_ventas` (
 
 INSERT INTO `tbl_ventas` (`id`, `fecha`, `total`) VALUES
 (1, '2023-11-17 05:00:16', 550.00),
-(3, '2023-11-22 08:10:51', -2.00);
+(2, '2023-11-22 18:02:36', 0.00);
 
 --
 -- Índices para tablas volcadas
@@ -121,19 +119,19 @@ ALTER TABLE `tbl_ventas`
 -- AUTO_INCREMENT de la tabla `tbl_productos`
 --
 ALTER TABLE `tbl_productos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_productosvendidos`
 --
 ALTER TABLE `tbl_productosvendidos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_ventas`
 --
 ALTER TABLE `tbl_ventas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
